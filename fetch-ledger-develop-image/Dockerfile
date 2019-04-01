@@ -61,7 +61,8 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
 
 USER default
 
-COPY home/* /home/default/
+COPY fetch-ledger-develop-image/home/* /home/default/
+ADD ./ /docker-images/
 
 WORKDIR /build
 ENTRYPOINT []

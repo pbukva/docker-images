@@ -18,4 +18,7 @@ RUN mkdir /build && \
 ENV CC=clang
 ENV CXX=clang++
 
+ADD ./ /docker-images/
+
 WORKDIR /build
+
