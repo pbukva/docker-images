@@ -44,8 +44,8 @@ def build_alpine_constellation():
 
     # compile the code (inside the development image)
     user_id = '{}:{}'.format(os.geteuid(), os.getegid())
-    subprocess.check_call([docker_build_path, '-u', user_id, '-e', 'FETCH_STATIC_LINK=ON', '--', compile_script_path, 'constellation'], cwd=PROJECT_PATH)
-    subprocess.check_call([docker_build_path, '-u', user_id, 'FETCH_STATIC_LINK=ON', '--', compile_script_path, 'vm-lang'], cwd=PROJECT_PATH)
+    subprocess.check_call([docker_build_path, '-u', user_id, '--', compile_script_path, '-DFETCH_STATIC_LINK=ON', '-DFETCH_VERBOSE_CMAKE=ON', '--', 'constellation'], cwd=PROJECT_PATH)
+    subprocess.check_call([docker_build_path, '-u', user_id, '--', compile_script_path, '-DFETCH_STATIC_LINK=ON', '-DFETCH_VERBOSE_CMAKE=ON', '--', 'vm-lang'], cwd=PROJECT_PATH)
 
 
 def main():
