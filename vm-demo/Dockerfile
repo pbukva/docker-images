@@ -1,10 +1,11 @@
-FROM alpine:3.8
+FROM alpine:latest
 
 RUN mkdir -p /app/data && \
 	apk add \
 	libstdc++ \
 	python3 \
-	libgcc
+	libgcc \
+    gcompat
 
 ADD requirements.txt /app
 
